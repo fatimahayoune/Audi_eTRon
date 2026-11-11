@@ -1,0 +1,60 @@
+﻿<Page x:Class="Audi_eTron.DetallePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1100"
+      Title="Ficha de Vehículo" Background="#0C0C0E">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="40">
+            <!-- BOTÓN VOLVER -->
+            <Button Content="← Volver al Catálogo" Click="BtnVolver_Click" HorizontalAlignment="Left" 
+                    Background="Transparent" Foreground="#A0A0AB" BorderBrush="Transparent" Cursor="Hand" FontSize="14" Margin="0,0,0,25"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- GALERÍA DE FOTOS (Imagen dinámica) -->
+                <StackPanel Grid.Column="0" Margin="0,0,30,0">
+                    <Border CornerRadius="12" ClipToBounds="True" Height="340" Margin="0,0,0,15" BorderBrush="#22222A" BorderThickness="1">
+                        <Image x:Name="imgPrincipal" Source="pack://application:,,,/Imagenes/Audi e-tron GT RS.jpg" Stretch="UniformToFill"/>
+                    </Border>
+                </StackPanel>
+
+                <!-- DETALLES TÉCNICOS DEL VEHÍCULO -->
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="AUDI E-TRON OFICIAL" Foreground="#BB0A30" FontSize="12" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBlock x:Name="txtNombreCoche" Text="Audi e-tron GT RS" Foreground="White" FontSize="32" FontWeight="Bold" Margin="0,0,0,15"/>
+                    <TextBlock x:Name="txtDescripcionCoche" Text="El Gran Turismo 100% eléctrico que combina la máxima deportividad con el confort diario." 
+                               Foreground="#A0A0AB" FontSize="14" TextWrapping="Wrap" LineHeight="22" Margin="0,0,0,25"/>
+
+                    <!-- ESPECIFICACIONES -->
+                    <Border Background="#141418" CornerRadius="10" Padding="20" Margin="0,0,0,25" BorderBrush="#262630" BorderThickness="1">
+                        <StackPanel>
+                            <DockPanel Margin="0,0,0,10">
+                                <TextBlock Text="Precio Base:" Foreground="#80808D" FontSize="13"/>
+                                <TextBlock x:Name="txtPrecioCoche" Text="145.650 €" Foreground="#BB0A30" FontWeight="Bold" DockPanel.Dock="Right" HorizontalAlignment="Right" FontSize="16"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,0,0,10">
+                                <TextBlock Text="Potencia Máxima:" Foreground="#80808D" FontSize="13"/>
+                                <TextBlock x:Name="txtPotenciaCoche" Text="646 CV (475 kW)" Foreground="White" FontWeight="Bold" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                            </DockPanel>
+                            <DockPanel Margin="0,0,0,10">
+                                <TextBlock Text="Autonomía (WLTP):" Foreground="#80808D" FontSize="13"/>
+                                <TextBlock x:Name="txtAutonomiaCoche" Text="Hasta 495 km" Foreground="White" FontWeight="Bold" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Button Content="Solicitar Presupuesto Oficial" Click="BtnPresupuesto_Click" Background="#BB0A30" Foreground="White" 
+                            FontWeight="Bold" Height="46" FontSize="14" BorderBrush="Transparent" Cursor="Hand"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

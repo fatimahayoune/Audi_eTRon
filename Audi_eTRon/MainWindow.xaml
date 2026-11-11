@@ -1,0 +1,99 @@
+﻿<Window x:Class="Audi_eTron.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Audi e-tron | Sitio Oficial" Height="750" Width="1240"
+        WindowStartupLocation="CenterScreen" Background="#0C0C0E">
+
+    <!-- RECURSOS DE ESTILO Y ANIMACIÓN DE CABECERA -->
+    <Window.Resources>
+        <Style x:Key="BtnNavRojo" TargetType="Button">
+            <Setter Property="Background" Value="#BB0A30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Padding" Value="18,9"/>
+            <Setter Property="Margin" Value="6,0"/>
+            <!-- Permite aplicar transformaciones de escala -->
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <!-- Plantilla para crear bordes redondeados tipo píldora/cápsula -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                CornerRadius="20" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Animación al pasar el ratón (Hover) -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <!-- Crece un 5% y cambia el color a un rojo más vivo -->
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" To="1.05" Duration="0:0:0.15"/>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" To="1.05" Duration="0:0:0.15"/>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="#E60A38" Duration="0:0:0.15"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <!-- Vuelve a su tamaño y color original -->
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.15"/>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.15"/>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="#BB0A30" Duration="0:0:0.15"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- CABECERA CORPORATIVA CON SOMBRA Y NUEVO LOGO -->
+        <Border Grid.Row="0" Background="#08080A" BorderBrush="#1C1C24" BorderThickness="0,0,0,1" Padding="35,0" Panel.ZIndex="10">
+            <!-- Efecto de sombra hacia abajo para dar elegancia -->
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="4" Direction="270" Color="Black" Opacity="0.5"/>
+            </Border.Effect>
+
+            <DockPanel LastChildFill="False">
+
+                <!-- NUEVO LOGO INTEGRADO (logorojodefinitivo.jpg) Y NOMBRE -->
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="pack://application:,,,/Imagenes/logorojodefinitivo.jpg" Height="67" Stretch="Uniform" Width="93"/>
+                    <TextBlock Foreground="White" FontSize="22" FontWeight="Light" FontFamily="Segoe UI" VerticalAlignment="Center"/>
+                    <TextBlock Text="e-tron" Foreground="#BB0A30" FontSize="26" FontWeight="Bold" FontFamily="Segoe UI" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <!-- MENÚ CON BOTONES ROJOS REDONDEADOS Y ANIMADOS -->
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button x:Name="btnInicio" Content="Inicio" Click="BtnInicio_Click" Style="{StaticResource BtnNavRojo}" Background="#FF65333E"/>
+                    <Button x:Name="btnGaleria" Content="Catálogo e-tron" Click="BtnGaleria_Click" Style="{StaticResource BtnNavRojo}" Background="#FF65333E"/>
+                    <Button x:Name="btnLogin" Content="Área Cliente" Click="BtnLogin_Click" Style="{StaticResource BtnNavRojo}"/>
+                </StackPanel>
+
+            </DockPanel>
+        </Border>
+
+        <!-- CONTENEDOR PRINCIPAL DE PÁGINAS -->
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Imagenes\Audi e-tron GT RS.jpg" />
+    <None Remove="Imagenes\Audi e-tron GT RSdelante.jpg" />
+    <None Remove="Imagenes\Audi Q4 Sportback e-tron.jpg" />
+    <None Remove="Imagenes\Audi Q6 e-tron.jpg" />
+    <None Remove="Imagenes\Audi Q8 e-tron S Line..jpg" />
+    <None Remove="Imagenes\gifcoche rojo corriendo.gif" />
+    <None Remove="Imagenes\giphy.gif" />
+    <None Remove="Imagenes\logo.avif" />
+    <None Remove="Imagenes\logogifverde.gif" />
+    <None Remove="Imagenes\logorojodefinitivo.jpg" />
+    <None Remove="Imagenes\photo-1600191763736-2c18c79244b8.avif" />
+    <None Remove="Imagenes\photo-1631626749818-39fe46770feb.avif" />
+    <None Remove="Imagenes\photo-1710011115876-301113e1bb61.avif" />
+    <None Remove="Imagenes\q4.jpg" />
+    <None Remove="Imagenes\q8 etron.jpg" />
+    <None Remove="Imagenes\q8.avif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XamlAnimatedGif" Version="2.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imagenes\Audi e-tron GT RS.jpg" />
+    <Resource Include="Imagenes\Audi e-tron GT RSdelante.jpg" />
+    <Resource Include="Imagenes\Audi Q4 Sportback e-tron.jpg" />
+    <Resource Include="Imagenes\Audi Q6 e-tron.jpg" />
+    <Resource Include="Imagenes\Audi Q8 e-tron S Line..jpg" />
+    <Resource Include="Imagenes\gifcoche rojo corriendo.gif" />
+    <Resource Include="Imagenes\giphy.gif" />
+    <Resource Include="Imagenes\logo.avif" />
+    <Resource Include="Imagenes\logogifverde.gif" />
+    <Resource Include="Imagenes\logorojodefinitivo.jpg" />
+    <Resource Include="Imagenes\photo-1600191763736-2c18c79244b8.avif" />
+    <Resource Include="Imagenes\photo-1631626749818-39fe46770feb.avif" />
+    <Resource Include="Imagenes\photo-1710011115876-301113e1bb61.avif" />
+    <Resource Include="Imagenes\q4.jpg" />
+    <Resource Include="Imagenes\q8 etron.jpg" />
+    <Resource Include="Imagenes\q8.avif" />
+  </ItemGroup>
+
+</Project>
